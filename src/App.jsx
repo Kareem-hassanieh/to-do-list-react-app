@@ -4,6 +4,7 @@ import './App.css'
 import Header from './components/Header'
 import ToDoItems from './components/ToDoItems'
 import Form from './components/Form'
+import DoneItems from './components/DoneItems'
 
 function App() {
 
@@ -25,9 +26,12 @@ function App() {
           <div>
             <Header onAddClick={() => setShowForm(true)}/>
 
-            <div>
+            <div className='flex'>
               <ToDoItems />
+              <DoneItems/>
             </div>
+
+           
 
           </div>
 

@@ -3,9 +3,11 @@ import useTodoStore from '../store/store.js';
 
 function ToDoItems() {
   const todoList = useTodoStore((state) => state.todoList);
+
   
 
   const {deleteToDo}=useTodoStore();
+  const {moveToDone}=useTodoStore();
 
 
   return (
@@ -20,8 +22,10 @@ function ToDoItems() {
                 <p>{item.title}</p>
               </div>
 
-              <div>
-              {item.dueDate}
+              <div className='flex gap-[5px]'>
+               
+              <span>{item.dueDate}</span>
+              <input onChange={() => moveToDone(item.id)}  type="checkbox"></input>
               </div>
              
             </div>
@@ -34,8 +38,11 @@ function ToDoItems() {
 
 
               <div className='ml-[auto] '>
-              <button onClick={()=>deleteToDo(item.id)} className='mr-[10px]'>delete</button>
-        
+
+              <button className='mr-[10px]'>edit</button>
+
+              <button onClick={()=>deleteToDo(item.id)} >delete</button>
+
               </div>
            
           

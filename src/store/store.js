@@ -25,6 +25,7 @@ const useTodoStore = create((set) => ({
       dueDate: '2024-10-25', 
     },
   ],
+  doneList: [],
 
   addTodo: (newTodo) => set((state) => ({
     todoList: [...state.todoList, newTodo],
@@ -34,6 +35,13 @@ const useTodoStore = create((set) => ({
     todoList: state.todoList.filter((todo) => todo.id!== id),
   })),
 
+  moveToDone: (id) => set((state) => {
+    const itemToMove = state.todoList.find((todo) => todo.id === id);
+    return {
+      todoList: state.todoList.filter((todo) => todo.id !== id),
+      doneList: [...state.doneList, itemToMove],
+    };
+  })
   
 }));
 

@@ -21,7 +21,7 @@ function Form({ onClose }) {
 
   function handleAddTodo() {
     const newTodo = {
-      id: todoList.length + 1, // Simple ID generation
+      id: Date.now(), 
       title:title,
       priority: parseInt(priority), // Convert priority to a number
       task:task,
