@@ -1,26 +1,8 @@
 import React from 'react'
+import useTodoStore from '../store/store.js';
 
 function ToDoItems() {
-  const todoList = [
-    {
-      id: 1,
-      title:"laundary",
-      priority: 2,
-      task: 'Do laundry'
-    },
-    {
-      id: 2,
-      title:"code",
-      priority: 3,
-      task: 'Complete React project'
-    },
-    {
-      id: 3,
-      title:"shopping",
-      priority: 1,
-      task: 'Grocery shopping'
-    },
-  ];
+  const todoList = useTodoStore((state) => state.todoList);
 
 
   return (
@@ -36,7 +18,7 @@ function ToDoItems() {
               </div>
 
               <div>
-                date:20
+              {item.dueDate}
               </div>
             </div>
 
