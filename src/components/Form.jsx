@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import useTodoStore from '../store/store.js'
 
 
 
 function Form({ onClose }) {
+
+  const { addTodo, todoList } = useTodoStore();
 
 
 
@@ -15,6 +18,28 @@ function Form({ onClose }) {
 
 
   const [dueDate, setDueDate] = useState('');
+
+  function handleAddTodo() {
+    const newTodo = {
+      id: todoList.length + 1, // Simple ID generation
+      title:title,
+      priority: parseInt(priority), // Convert priority to a number
+      task:task,
+      dueDate:dueDate
+    };
+
+    addTodo(newTodo);
+    resetForm();
+    onClose(); // Call onClose to hide the form
+  }
+
+  const resetForm = () => {
+    setTitle('');
+    setPriority('');
+    setTask('');
+    setDueDate('');
+  };
+
 
 
 
@@ -77,7 +102,7 @@ function Form({ onClose }) {
 
 
 
-      <button onClick={onClose} className='bg-black text-white p-2 rounded-md w-[40%] ml-auto'>
+      <button onClick={handleAddTodo} className='bg-[#a7d6df] text-black p-2 rounded-md w-[40%] ml-auto mt-[10px]'>
         Submit
       </button>
     </div>
