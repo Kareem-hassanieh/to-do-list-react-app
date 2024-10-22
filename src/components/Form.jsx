@@ -60,7 +60,7 @@ function Form({ onClose }) {
           placeholder='Title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-500 focus:outline-none'
+          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-300 focus:outline-none'
         />
       </div>
 
@@ -74,7 +74,7 @@ function Form({ onClose }) {
           onChange={(e) => setPriority(e.target.value)}
           min='1'
           max='5'
-          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-500 focus:outline-none'
+          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-300 focus:outline-none'
         />
       </div>
 
@@ -85,7 +85,7 @@ function Form({ onClose }) {
           placeholder='Task Description'
           value={task}
           onChange={(e) => setTask(e.target.value)}
-          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-500 focus:outline-none'
+          className='p-1 rounded-md mb-2 w-[100%] border border-gray-300 focus:border-blue-300 focus:outline-none'
         />
       </div>
 
@@ -96,7 +96,7 @@ function Form({ onClose }) {
           type='date'
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
-          className='p-2 rounded-lg w-full border border-gray-300 focus:border-blue-500 focus:outline-none bg-gray-50 hover:bg-gray-100 transition-shadow shadow-sm focus:shadow-md'
+          className='p-2 rounded-lg w-full border border-gray-300 focus:border-blue-300 focus:outline-none bg-gray-50 hover:bg-gray-100 transition-shadow shadow-sm focus:shadow-md'
         />
       </div>
 

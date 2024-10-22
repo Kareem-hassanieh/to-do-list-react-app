@@ -3,6 +3,9 @@ import useTodoStore from '../store/store.js';
 
 function ToDoItems() {
   const todoList = useTodoStore((state) => state.todoList);
+  
+
+  const {deleteToDo}=useTodoStore();
 
 
   return (
@@ -20,11 +23,26 @@ function ToDoItems() {
               <div>
               {item.dueDate}
               </div>
+             
             </div>
 
             <div>
               {item.task}
             </div>
+
+            <div className='flex flex-col'>
+
+
+              <div className='ml-[auto] '>
+              <button onClick={()=>deleteToDo(item.id)} className='mr-[10px]'>delete</button>
+        
+              </div>
+           
+          
+
+            </div>
+
+            
   
           </div>
         ))}
