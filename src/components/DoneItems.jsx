@@ -1,5 +1,7 @@
 import React from 'react'
 import useTodoStore from '../store/store';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function DoneItems() {
 
@@ -18,14 +20,14 @@ function DoneItems() {
             <div className='flex justify-between'>
               <div className='flex gap-[5px]'>
                 <p>({item.priority})</p>
-                <p className='line-through'>{item.title}</p>
+                <p className='line-through font-bold text-[#aba9a9] text-[15px]'>{item.title}</p>
               </div>
               <div className='flex gap-[5px]'>
                 <span>{item.dueDate}</span>
                 <input type="checkbox" checked disabled />
               </div>
             </div>
-            <div className='mt-[5px] mb-[5px] line-through'>
+            <div className='mt-[7px] mb-[5px] text-[13px] line-through'>
               {item.task}
             </div>
 
@@ -34,7 +36,9 @@ function DoneItems() {
 
              
 
-              <button onClick={() => deleteToDoDone(item.id)} >delete</button>
+              <button onClick={() => deleteToDoDone(item.id)} >
+              <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+              </button>
 
             </div>
 

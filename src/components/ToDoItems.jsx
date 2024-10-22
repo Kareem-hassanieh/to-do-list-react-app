@@ -1,5 +1,11 @@
 import React from 'react'
 import useTodoStore from '../store/store.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'; // or faAngleUp and faAngleDown
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function ToDoItems() {
   const todoList = useTodoStore((state) => state.todoList);
@@ -28,20 +34,27 @@ function ToDoItems() {
 
       <div className='flex flex-col '>
         <button onClick={()=>sortTodoList('priority','asc')}>
-          SPA
+        <FontAwesomeIcon icon={faChevronUp} className="mr-2 text-green-200" />
+       
          </button>
-        <button  onClick={()=>sortTodoList('priority','desc')}>SPD</button>
+        <button  onClick={()=>sortTodoList('priority','desc')}>
+        <FontAwesomeIcon icon={faChevronDown} className="mr-2 text-red-300" />
+        </button>
       </div>
 
       <div className='flex flex-col'>
 
       <button onClick={()=>sortTodoList('dueDate', 'asc')}>
-          SPA
+      <FontAwesomeIcon icon={faChevronUp} className="mr-2 text-green-200" />
          </button>
-        <button  onClick={()=>sortTodoList('dueDate', 'desc')}>SPD</button>
+        <button  onClick={()=>sortTodoList('dueDate', 'desc')}>
+        <FontAwesomeIcon icon={faChevronDown} className="mr-2 text-red-300" />
+        </button>
       </div>
 
-      <button onClick={resetTodoList}>Reset</button>
+      <button onClick={resetTodoList}>
+      <FontAwesomeIcon icon={faRedo} className="mr-2" />
+      </button>
 
         
       </div>
@@ -54,7 +67,7 @@ function ToDoItems() {
             <div className='flex justify-between'>
               <div className='flex gap-[5px]'>
                 <p>({item.priority})</p> 
-                <p>{item.title}</p>
+                <p className='font-bold text-[#aba9a9] text-[15px]'>{item.title}</p>
               </div>
 
               <div className='flex gap-[5px]'>
@@ -65,7 +78,7 @@ function ToDoItems() {
              
             </div>
 
-            <div className='mt-[5px] mb-[5px]'>
+            <div className='mt-[10px] mb-[5px] text-[13px]'>
               {item.task}
             </div>
 
@@ -74,9 +87,13 @@ function ToDoItems() {
 
               <div className='ml-[auto] '>
 
-              <button className='mr-[10px]'>edit</button>
+              <button className='mr-[10px]'>
+              <FontAwesomeIcon icon={faEdit} className="mr-2" />
+              </button>
 
-              <button onClick={()=>deleteToDo(item.id)} >delete</button>
+              <button onClick={()=>deleteToDo(item.id)} >
+              <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+              </button>
 
               </div>
            
