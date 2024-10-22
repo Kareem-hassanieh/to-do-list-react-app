@@ -15,8 +15,8 @@ function DoneItems() {
         {doneList.map(item => (
           <div key={item.id} className='flex flex-col bg-[green]  mr-[15px] ml-[15px]'>
             <div className='flex justify-between'>
-              <div className='flex gap-[10px]'>
-                <p>{item.priority}</p>
+              <div className='flex gap-[5px]'>
+                <p>({item.priority})</p>
                 <p>{item.title}</p>
               </div>
               <div className='flex gap-[5px]'>

@@ -3,6 +3,7 @@ import useTodoStore from '../store/store.js';
 
 function ToDoItems() {
   const todoList = useTodoStore((state) => state.todoList);
+  const filteredTodoList = useTodoStore((state) => state.filteredTodoList);
 
   
 
@@ -13,6 +14,8 @@ function ToDoItems() {
 
 
   const resetTodoList = useTodoStore((state) => state.resetTodoList);
+
+  const displayList = filteredTodoList && filteredTodoList.length > 0 ? filteredTodoList : todoList;
 
  
 
@@ -46,11 +49,11 @@ function ToDoItems() {
 
 
       <div className='flex flex-col gap-[30px]'>
-        {todoList.map(item => (
+        {displayList.map(item => (
           <div key={item.id} className='flex flex-col bg-[#800000] '>
             <div className='flex justify-between'>
-              <div className='flex gap-[10px]'>
-                <p>{item.priority}</p> 
+              <div className='flex gap-[5px]'>
+                <p>({item.priority})</p> 
                 <p>{item.title}</p>
               </div>
 

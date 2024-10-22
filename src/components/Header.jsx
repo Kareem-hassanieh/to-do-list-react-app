@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
 import useTodoStore from '../store/store.js';
 
 
 
 function Header({ onAddClick }) {
 
-  const sortTodoList = useTodoStore((state) => state.sortTodoList);
+  const [searchQuery, setSearchQuery] = useState('');
+  const setFilteredTodos = useTodoStore(state => state.setFilteredTodos);
 
-  const handleSort = (criteria, order) => {
-    sortTodoList(criteria, order);
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setFilteredTodos(query); // Update the filtered todos in the store
   };
+
+
+  
+
+ 
 
   return (
     <>
@@ -21,10 +30,15 @@ function Header({ onAddClick }) {
 
       <div className='ml-[15px] mr-[15px] flex items-center'>
         <button onClick={onAddClick} className='bg-[#fae652] pt-[10px] pb-[10px] pl-[30px] pr-[30px] rounded-md mt-[10px] text-xl flex justify-center items-center'>+</button>
-        <input type="text" placeholder='Search...' className='p-1 rounded-md ml-    [10px]
-          mt-[10px] h-[45px]flex-grow'>
 
-            
+
+        <input 
+        
+        type="text" placeholder='Search...' className='p-1 rounded-md ml-[10px] mt-[10px] h-[45px] flex-grow'  value={searchQuery}   onChange={handleSearchChange}
+         >
+          
+
+
           </input>
 
 

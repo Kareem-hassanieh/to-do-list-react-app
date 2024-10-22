@@ -49,10 +49,11 @@ const useTodoStore = create((set) => ({
     },
   ],
   doneList: [],
+  filteredTodos: [],
 
   addTodo: (newTodo) => set((state) => ({
     todoList: [...state.todoList, newTodo],
-    originalTodoList: [...state.originalTodoList, todo],
+    originalTodoList: [...state.originalTodoList, newTodo],
   })),
 
   deleteToDo:(id) =>set((state) => ({
@@ -90,7 +91,21 @@ const useTodoStore = create((set) => ({
 
   resetTodoList: () => set((state) => ({
     todoList: [...state.originalTodoList] 
-  }))
+  })),
+
+  setFilteredTodos: (query) => set((state) => {
+    if (query) {
+      const filteredTodos = state.originalTodoList.filter(todo =>
+        todo.title.toLowerCase().includes(query.toLowerCase())
+      );
+      return { filteredTodoList: filteredTodos };
+    }
+    return { filteredTodoList: [] }; 
+  }),
+
+  
+
+
 
 
   
