@@ -41,7 +41,11 @@ const useTodoStore = create((set) => ({
       todoList: state.todoList.filter((todo) => todo.id !== id),
       doneList: [...state.doneList, itemToMove],
     };
-  })
+  }),
+
+   deleteToDoDone:  (id) =>set((state) => ({
+    doneList: state.doneList.filter((tododone) => tododone.id!== id),
+  })),
   
 }));
 

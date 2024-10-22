@@ -34,7 +34,7 @@ function ToDoItems() {
               {item.task}
             </div>
 
-            <div className='flex flex-col'>
+          
 
 
               <div className='ml-[auto] '>
@@ -47,7 +47,6 @@ function ToDoItems() {
            
           
 
-            </div>
 
             
   
