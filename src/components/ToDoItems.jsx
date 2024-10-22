@@ -9,13 +9,38 @@ function ToDoItems() {
   const {deleteToDo}=useTodoStore();
   const {moveToDone}=useTodoStore();
 
+  const sortTodoList = useTodoStore((state) => state.sortTodoList);
+
 
   return (
-    <div className='w-[50%] ml-[15px]'>
-      <h2 className='mb-[20px] text-center' >To Do Items</h2>
+    <div className='w-[50%] ml-[15px] '>
+     
+      <div className='flex justify-center gap-[15px] '>
+      <h2 className='mb-[20px] text-center font-bold text-2xl' >To Do Items</h2>
+
+      <div className='flex flex-col '>
+        <button onClick={()=>sortTodoList('priority','asc')}>
+          SPA
+         </button>
+        <button  onClick={()=>sortTodoList('priority','desc')}>SPD</button>
+      </div>
+
+      <div className='flex flex-col'>
+
+      <button onClick={()=>sortTodoList('dueDate', 'asc')}>
+          SPA
+         </button>
+        <button  onClick={()=>sortTodoList('dueDate', 'desc')}>SPD</button>
+      </div>
+
+        
+      </div>
+
+
+
       <div className='flex flex-col gap-[30px]'>
         {todoList.map(item => (
-          <div key={item.id} className='flex flex-col bg-[green] '>
+          <div key={item.id} className='flex flex-col bg-[#800000] '>
             <div className='flex justify-between'>
               <div className='flex gap-[10px]'>
                 <p>{item.priority}</p> 

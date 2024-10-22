@@ -10,7 +10,7 @@ function DoneItems() {
 
   return (
     <div className='w-[50%]'>
-      <h2 className='text-center'>Done items</h2>
+      <h2 className='text-center b-[20px] font-bold text-2xl'>Done items</h2>
       <div className='flex flex-col gap-[30px] mt-[18px]'>
         {doneList.map(item => (
           <div key={item.id} className='flex flex-col bg-[green]  mr-[15px] ml-[15px]'>
@@ -31,7 +31,7 @@ function DoneItems() {
 
             <div className='ml-[auto] '>
 
-              <button className='mr-[10px]'>edit</button>
+             
 
               <button onClick={() => deleteToDoDone(item.id)} >delete</button>
 

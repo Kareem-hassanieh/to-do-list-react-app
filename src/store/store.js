@@ -46,6 +46,25 @@ const useTodoStore = create((set) => ({
    deleteToDoDone:  (id) =>set((state) => ({
     doneList: state.doneList.filter((tododone) => tododone.id!== id),
   })),
+
+ 
+  sortTodoList: (criteria, order) => set((state) => {
+    const sortedList = [...state.todoList];
+
+    if (criteria === 'priority') {
+      sortedList.sort((a, b) => order === 'asc' ? a.priority - b.priority : b.priority - a.priority);
+    } else if (criteria === 'dueDate') {
+      sortedList.sort((a, b) => {
+        const dateA = new Date(a.dueDate);
+        const dateB = new Date(b.dueDate);
+        return order === 'asc' ? dateA - dateB : dateB - dateA;
+      });
+    }
+    
+    return { todoList: sortedList };
+  })
+
+
   
 }));
 
