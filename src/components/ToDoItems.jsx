@@ -21,7 +21,7 @@ function ToDoItems() {
 
 
   return (
-    <div className='w-[50%] ml-[15px] '>
+    <div className='w-[80%] md:w-1/2 m-auto md:m-[0]'>
      
       <div className='flex justify-center gap-[15px] '>
       <h2 className='mb-[20px] text-center font-bold text-2xl' >To Do Items</h2>
@@ -48,9 +48,9 @@ function ToDoItems() {
 
 
 
-      <div className='flex flex-col gap-[30px]'>
+      <div className='flex flex-col gap-[30px] '>
         {displayList.map(item => (
-          <div key={item.id} className='flex flex-col bg-[#800000] '>
+          <div key={item.id} className='flex flex-col bg-[#1D1D1D] text-white p-[8px] rounded-lg w-[90%] m-auto'>
             <div className='flex justify-between'>
               <div className='flex gap-[5px]'>
                 <p>({item.priority})</p> 
@@ -59,13 +59,13 @@ function ToDoItems() {
 
               <div className='flex gap-[5px]'>
                
-              <span>{item.dueDate}</span>
+              <span className='text-[#91622E]'>{item.dueDate}</span>
               <input onChange={() => moveToDone(item.id)}  type="checkbox"></input>
               </div>
              
             </div>
 
-            <div>
+            <div className='mt-[5px] mb-[5px]'>
               {item.task}
             </div>
 

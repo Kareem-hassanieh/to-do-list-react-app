@@ -26,7 +26,7 @@ function App() {
           <div>
             <Header onAddClick={() => setShowForm(true)}/>
 
-            <div className='flex'>
+            <div className='flex flex-col md:flex-row '>
               <ToDoItems />
               <DoneItems/>
             </div>

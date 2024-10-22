@@ -29,7 +29,7 @@ function Header({ onAddClick }) {
       </div>
 
       <div className='ml-[15px] mr-[15px] flex items-center'>
-        <button onClick={onAddClick} className='bg-[#fae652] pt-[10px] pb-[10px] pl-[30px] pr-[30px] rounded-md mt-[10px] text-xl flex justify-center items-center'>+</button>
+        <button onClick={onAddClick} className='bg-[#BE7729] pt-[10px] pb-[10px] pl-[30px] pr-[30px] rounded-md mt-[10px] text-xl flex justify-center items-center'>+</button>
 
 
         <input 
