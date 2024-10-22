@@ -25,10 +25,34 @@ const useTodoStore = create((set) => ({
       dueDate: '2024-10-25', 
     },
   ],
+  originalTodoList: [
+    {
+      id: 1,
+      title: "laundry",
+      priority: 2,
+      task: 'Do laundry',
+      dueDate: '2024-10-30', 
+    },
+    {
+      id: 2,
+      title: "code",
+      priority: 3,
+      task: 'Complete React project',
+      dueDate: '2024-11-01', 
+    },
+    {
+      id: 3,
+      title: "shopping",
+      priority: 1,
+      task: 'Grocery shopping',
+      dueDate: '2024-10-25', 
+    },
+  ],
   doneList: [],
 
   addTodo: (newTodo) => set((state) => ({
     todoList: [...state.todoList, newTodo],
+    originalTodoList: [...state.originalTodoList, todo],
   })),
 
   deleteToDo:(id) =>set((state) => ({
@@ -62,7 +86,11 @@ const useTodoStore = create((set) => ({
     }
     
     return { todoList: sortedList };
-  })
+  }),
+
+  resetTodoList: () => set((state) => ({
+    todoList: [...state.originalTodoList] 
+  }))
 
 
   

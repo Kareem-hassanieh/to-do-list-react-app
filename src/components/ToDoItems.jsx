@@ -12,6 +12,11 @@ function ToDoItems() {
   const sortTodoList = useTodoStore((state) => state.sortTodoList);
 
 
+  const resetTodoList = useTodoStore((state) => state.resetTodoList);
+
+ 
+
+
   return (
     <div className='w-[50%] ml-[15px] '>
      
@@ -32,6 +37,8 @@ function ToDoItems() {
          </button>
         <button  onClick={()=>sortTodoList('dueDate', 'desc')}>SPD</button>
       </div>
+
+      <button onClick={resetTodoList}>Reset</button>
 
         
       </div>
